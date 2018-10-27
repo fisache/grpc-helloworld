@@ -1,0 +1,9 @@
+FROM golang:1.8
+
+WORKDIR /go/src/github.com/fisache/grpc-helloworld
+ADD . .
+
+RUN go get -d -v ./...
+RUN go install -v ./client
+
+CMD ["/go/bin/client"]
